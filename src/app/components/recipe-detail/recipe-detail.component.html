@@ -1,0 +1,15 @@
+<h2>Recipe Details</h2>
+<div *ngIf="loading">Loading...</div> 
+<div *ngIf="!loading && recipe; else notFound">
+    <h3>{{ recipe.name }}</h3>
+    <p>{{ recipe.description }}</p>
+
+    <h3>Ingredients:</h3>
+    <ul>
+        <li *ngFor="let ingredient of recipe.ingredients">{{ ingredient }}</li>
+    </ul>
+</div>
+
+<ng-template #notFound>
+    <p>Recipe not found!</p>
+</ng-template>
