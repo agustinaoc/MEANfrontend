@@ -14,14 +14,14 @@ export interface Recipe {
   providedIn: 'root'
 })
 export class RecipeService {
-  private apiUrl = 'http://localhost:5000/api/recipes'; 
+  private apiUrl = 'https://recipe-api-hmz9.onrender.com/api/recipes'; 
 
   constructor(private http: HttpClient) {}
 
   getRecipes(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(this.apiUrl).pipe(
       map((recipes: any[]) => recipes.map(recipe => ({
-        id: recipe._id,  // MongoDB _id mapped to id
+        id: recipe._id, 
         name: recipe.name,
         description: recipe.description,
         ingredients: recipe.ingredients,
